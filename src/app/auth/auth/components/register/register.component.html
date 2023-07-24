@@ -1,0 +1,80 @@
+<div>
+    <div class="bg-white mx-auto">
+        <div class="p-5">                
+            <form class="mt-5" [formGroup]="formService.form">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Full Name</mat-label>
+                    <input matInput formControlName="fullName">
+                    <mat-error *ngIf="formService.form.get('fullName') as control">
+                        <ng-container *ngIf="control.hasError('required')">
+                            This field is required
+                        </ng-container>
+                        <ng-container *ngIf="control.hasError('minlength')">
+                            Minimum 3 characters
+                        </ng-container>
+                        <ng-container *ngIf="control.hasError('pattern')">
+                            Full Name must start with a capital letter and have at least two words. Only letter and spaces are allowed.
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                    <mat-error *ngIf="formService.form.get('email') as control">
+                        <ng-container *ngIf="control.hasError('required')">
+                            This field is required
+                        </ng-container>
+                        <ng-container *ngIf="control.hasError('minlength')">
+                            Minimum 3 characters
+                        </ng-container>
+                        <ng-container *ngIf="control.hasError('email')">
+                            Email is in invalid format.
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Username</mat-label>
+                    <input matInput formControlName="username">
+                    <mat-error *ngIf="formService.form.get('username') as control">
+                        <ng-container *ngIf="control.hasError('required')">
+                            This field is required
+                        </ng-container>
+                        <ng-container *ngIf="control.hasError('minlength')">
+                            Minimum 3 characters
+                        </ng-container>
+                        <ng-container *ngIf="control.hasError('pattern')">
+                            Username must start with a letter and can only contain letters and numbers.
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput formControlName="password">
+                    <mat-error *ngIf="formService.form.get('password') as control">
+                        <ng-container *ngIf="control.hasError('required')">
+                            This field is required
+                        </ng-container>
+                        <ng-container *ngIf="control.hasError('minlength')">
+                            Minimum 3 characters
+                        </ng-container>
+                        <ng-container *ngIf="control.hasError('pattern')">
+                            Password has to be at least 8 characters long and include at least one lowercase, one uppercase letter, one number and one special characer of @$!%*?&
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+
+                <div class="contact-form-style">
+                    <button type="submit" class="my-primary-button p-3 m-0 rounded-0" [disabled]="formService.form.invalid" (click)="send()"><span>Register</span></button>
+                </div>
+
+            </form>
+
+            <div class="text-danger pt-3" *ngIf="errorMsg" [innerHTML]="errorMsg"></div>
+
+        </div>
+    </div>
+</div>

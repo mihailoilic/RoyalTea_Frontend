@@ -1,0 +1,24 @@
+
+
+    <form [formGroup]="filtersService.form">
+        
+    <div class="shop-keywords-filter pt-20">
+
+        <h4 class="shop-sidebar-title">Keywords</h4>
+        <input class="mt-10" type="text" formControlName="keywords">
+    </div>
+
+
+    <div *ngFor="let filter of filters" class="shop-widget mt-40 shop-sidebar-border pt-35">
+        <h4 class="shop-sidebar-title">By {{ filter.name }}</h4>
+        <div class="sidebar-list-style mt-20">
+            <ul [formArrayName]="filter.id">
+                <li *ngFor="let val of filter.values; index as i">
+                    <input type="checkbox" [formControlName]="i">{{ val.value }}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    </form>

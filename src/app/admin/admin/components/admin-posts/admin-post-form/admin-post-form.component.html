@@ -1,0 +1,46 @@
+<h4>Add New Post</h4>
+
+<form class="mt-5" [formGroup]="form">
+
+    <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title">
+        <mat-error *ngIf="form.get('title') as control">
+            <ng-container *ngIf="control.hasError('required')">
+                This field is required
+            </ng-container>
+            <ng-container *ngIf="control.hasError('minlength')">
+                Minimum 3 characters
+            </ng-container>
+            <ng-container *ngIf="control.hasError('maxlength')">
+                Maximum 50 characters
+            </ng-container>
+        </mat-error>
+    </mat-form-field>
+
+</form>
+
+<div class="py-2">
+    <span>Image:</span>
+    <input #file type="file" class="imageFile" (change)="setFilePath(file.value)" />
+</div>
+
+<div class="ptb-20">
+    <span>Content:</span>
+    <ckeditor 
+        [(ngModel)]="editorData" 
+        [editor]="editor"
+        [config]="editorConfig"
+    ></ckeditor>
+
+</div>
+
+
+    
+<div class="ptb-20">
+    <button class="my-primary-button p-2 px-3 m-0 rounded-0" 
+    [disabled]="form.invalid || !filePath" 
+    (click)="submit()">Submit</button>
+</div>
+
+<div class="text-danger" *ngIf="errorMsg">{{errorMsg}}</div>

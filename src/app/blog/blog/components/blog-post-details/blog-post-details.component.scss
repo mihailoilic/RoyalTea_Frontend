@@ -1,0 +1,31 @@
+img {
+    max-height: 500px;
+    object-fit: cover;
+}
+.content {
+    white-space: pre-wrap;
+}
+
+::ng-deep .table table {
+    border: 1px solid black;
+}
+
+::ng-deep .table table td {
+    padding: 5px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+::ng-deep .content {
+    h2 {
+        font-size: 1.5em;
+    }
+    h3 {
+        font-size: 1.3em;
+        
+    }
+    h4 {
+        font-size: 1.2em;
+        
+    }
+}

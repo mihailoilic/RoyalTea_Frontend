@@ -1,0 +1,53 @@
+<h4>Checkout</h4>
+<div class="mt-2">Total price: {{ data.total | currency : currencyService.selectedCurrency.isoCode }}</div>
+
+
+<form class="mt-5" [formGroup]="formService.form">
+
+    <mat-form-field appearance="fill">
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="fullName">
+        <mat-error *ngIf="formService.form.get('fullName') as control">
+            <ng-container *ngIf="control.hasError('required')">
+                This field is required
+            </ng-container>
+            <ng-container *ngIf="control.hasError('minlength')">
+                Minimum 2 characters
+            </ng-container>
+            <ng-container *ngIf="control.hasError('pattern')">
+                Your name must begin with a capital letter, only letters and spaces are allowed
+            </ng-container>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="formService.form.get('email') as control">
+            <ng-container *ngIf="control.hasError('required')">
+                This field is required
+            </ng-container>
+            <ng-container *ngIf="control.hasError('email')">
+                Please input a valid e-mail address
+            </ng-container>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Address for Delivery</mat-label>
+        <textarea matInput formControlName="address"></textarea>
+        <mat-error *ngIf="formService.form.get('address') as control">
+            <ng-container *ngIf="control.hasError('required')">
+                This field is required
+            </ng-container>
+            <ng-container *ngIf="control.hasError('minlength')">
+                Minimum 10 characters
+            </ng-container>
+        </mat-error>
+    </mat-form-field>
+
+    <div class="contact-form-style">
+        <button class="my-primary-button p-3 m-0 rounded-0" [disabled]="formService.form.invalid" (click)="send()">Place Order</button>
+    </div>
+
+</form>

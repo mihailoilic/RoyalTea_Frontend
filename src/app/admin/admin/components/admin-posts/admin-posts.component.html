@@ -1,0 +1,14 @@
+<app-cover-area title="BLOG MANAGEMENT" subtitle="Modify blog content"></app-cover-area>
+
+<div class="ptb-100 px-2 container">
+
+    <div class="ptb-30">
+        <button class="my-primary-button p-2 px-3" (click)="addNewPost()">Add New Post</button>
+    </div>
+
+    <app-common-table
+        [dataService]="dataService"
+        [tableService]="tableService"
+    ></app-common-table>
+
+</div>

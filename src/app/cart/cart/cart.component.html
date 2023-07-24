@@ -1,0 +1,40 @@
+<app-cover-area title="CART" subtitle="Items you have added"></app-cover-area>
+
+<div class="cart-main-area ptb-100">
+    <div class="container">
+        <h3 class="page-title">Your cart items</h3>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                
+
+                <app-common-table
+                    [dataService]="cartDataService"
+                    [tableService]="cartTableService"
+                ></app-common-table>
+
+
+                <div class="row pt-80" *ngIf="cartTableService.commonTableComponent.dataSource.data.length">
+                    <div class="col-lg-4 col-md-6">
+                        
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="grand-totall">
+                            <h4 *ngIf="cartTableService.getCartTotal() as total" class="grand-totall-title">Grand Total  <span>{{ total | currency : currencyService.selectedCurrency.isoCode }}</span></h4>
+                            <a href="#!" (click)="$event.preventDefault();checkout()">Proceed to Checkout</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="!cartTableService.commonTableComponent.dataSource.data.length" class="container pt-5 ps-0">
+                    <!-- <h3 class="page-title">Your cart is empty.</h3> -->
+                    <button routerLink="/shop" class="cart-btn-2">Visit shop</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>

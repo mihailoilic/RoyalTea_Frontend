@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "image": "banner-1.png",
+        "title": "best\nvalue",
+        "route": "/shop/sort/price-asc"
+    },
+    {
+        "id": 2,
+        "image": "banner-2.png",
+        "title": "new\narrivals",
+        "route": "/shop/sort/latest"
+    }
+]

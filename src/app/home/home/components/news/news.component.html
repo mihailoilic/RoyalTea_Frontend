@@ -1,0 +1,20 @@
+  <!-- News Area Start -->
+<div class="blog-area bg-image-1 pt-90 pb-70">
+    <div class="container">
+        <div class="product-top-bar section-border mb-55">
+            <div class="section-title-wrap text-center">
+                <h3 class="section-title">Latest Articles</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+
+            <div *ngFor="let post of posts" class="col-lg-4 col-md-6">
+                <app-blog-post [post]="post"></app-blog-post>
+            </div>
+        
+        </div>
+    </div>
+</div>
+  <!-- News Area End -->

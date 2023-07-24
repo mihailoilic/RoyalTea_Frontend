@@ -1,0 +1,74 @@
+<app-cover-area title="SHOP" subtitle="Find what suits you best"></app-cover-area>
+
+<div #pageTop class="shop-page-area ptb-100">
+    <div class="container">
+        <div  *ngIf="isReady" class="row flex-row-reverse">
+            <div class="col-lg-9">
+                <div class="shop-topbar-wrapper">
+                    <div class="shop-topbar-left">
+                        
+                        <app-product-count [paginationService]="paginationService"></app-product-count>
+
+                    </div>
+                    <div class="product-sorting-wrapper">
+                        <div class="product-shorting shorting-style">
+                            <label>Show: </label>
+                            <select [(ngModel)]="paginationService.itemsPerPage" (change)="filteringService.filterProducts()">
+                                <option [value]="6"> 6</option>
+                                <option [value]="12"> 12</option>
+                                <option [value]="24"> 24</option>
+                            </select>
+                        </div>
+                        <div class="product-show shorting-style">
+                            <label>Sort by:</label>
+                            <select [(ngModel)]="filteringService.sort" (change)="filteringService.filterProducts()">
+                                <option value="latest">Latest</option>
+                                <!-- <option value="discounted">Most Discounted</option> -->
+                                <option value="name">Name</option>
+                                <option value="price-asc">Price Asc</option>
+                                <option value="price-desc">Price Desc</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-list-product-wrapper">
+                    <div class="product-grid product-view pb-20">
+                        <div class="row">
+                            <div class="pt-20 pb-200 ps-4" *ngIf="!paginationService.dataOnPage.length">
+                                No items match the criteria.
+                            </div>
+                            <div *ngFor="let product of paginationService.dataOnPage" class="product-width col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-30">
+
+                                <app-product [product]="product"></app-product>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pagination-total-pages" *ngIf="paginationService.dataOnPage.length">
+                        
+                        <app-pagination [paginationService]="paginationService"></app-pagination>
+
+                        <div class="total-pages">
+                            <app-product-count [paginationService]="paginationService"></app-product-count>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="col-lg-3">
+                <div class="shop-sidebar-wrapper gray-bg-7 shop-sidebar-mrg mb-30">
+                    <app-category-nav [categories]="categories"></app-category-nav>
+                </div>
+
+                <div class="shop-sidebar-wrapper gray-bg-7 shop-sidebar-mrg">
+                    <app-filters *ngIf="isReady" [filters]="filteringService.filters"></app-filters>
+                    <div *ngIf="router.url == '/shop'" class="mt-4 pt-3 small text-muted border-top">Select category to see matching filters.</div>
+                </div>  
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Shop Page Area End -->
+

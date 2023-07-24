@@ -1,0 +1,12 @@
+<div class="header-currency">
+    <span class="digit">{{currencyService.selectedCurrency.isoCode}} <i class="ti-angle-down"></i></span>
+    <div class="dollar-submenu">
+        <ul>
+            <li *ngFor="let curr of currencyService.currencies">
+                <a href="#!" (click)="currencyService.changeSelectedCurrency(curr)">
+                    {{curr.isoCode}}
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

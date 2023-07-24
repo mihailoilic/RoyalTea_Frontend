@@ -1,0 +1,11 @@
+<div class="pt-20">
+    <h4 class="shop-sidebar-title pb-20">Categories</h4>
+    <ul>
+        <li class="py-1">
+            <a routerLink="/shop" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}">All Categories</a>
+        </li>
+        <li *ngFor="let cat of categories"  class="py-1">
+            <a [routerLink]="'/shop/category/' + cat.id" routerLinkActive="active">{{ cat.name | titlecase }}</a>
+        </li>
+    </ul>
+</div>

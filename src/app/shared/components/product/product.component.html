@@ -1,0 +1,33 @@
+<div class="product-wrapper-single">
+    <div class="product-wrapper mb-30">
+      <div class="product-img">
+        <a [routerLink]="'/shop/'+product.id">
+          <img alt="{{ product.title }}" src="{{ productImagesDir + product.image }}">
+        </a>
+        <span *ngIf="product.discount">-{{ product.discount }}%</span>
+        <div class="product-action">
+          
+          <a class="action-cart" href="#!" (click)="$event.preventDefault(); cartService.addItem(product, 1)"
+          title="Add To Cart">
+            <i class="ti-shopping-cart"></i>+
+          </a>
+        </div>
+      </div>
+      <div class="product-content text-left">
+        <div class="product-hover-style">
+          <div class="product-title">
+            <h4>
+              <a [routerLink]="'/shop/'+product.id">{{ product.title }}</a>
+            </h4>
+          </div>
+          <div class="cart-hover">
+            <h4><a [routerLink]="'/shop/'+product.id">View details</a></h4>
+          </div>
+        </div>
+        <div class="product-price-wrapper" *ngIf="currencyService.getPrice(product.prices) as price">
+          <span>{{ price.value | currency : price.currencyIso }} </span>
+          <span *ngIf="price.oldValue" class="product-price-old">{{ price.oldValue | currency : price.currencyIso }}</span>
+        </div>
+      </div>
+    </div>
+</div>

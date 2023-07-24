@@ -1,0 +1,17 @@
+
+    <div class="blog-single mb-30">
+        <div class="blog-thumb">
+          <a [routerLink]="'/blog/'+post.id">
+            <img src="{{ imageDir + post.image }}" [alt]="post.title" />
+          </a>
+        </div>
+        <div class="blog-content pt-25">
+          <span class="blog-date">{{ post.date | date }}</span>
+          <h3>
+            <a [routerLink]="'/blog/'+post.id">{{ post.title }}</a>
+          </h3>
+          <p *ngIf="stripHtmlTags(post.content) as content" [innerHtml]="(content.length > 80) ? 
+            (content | slice:0:80)+'...' : content"></p>
+          <a [routerLink]="'/blog/'+post.id">Read More</a>
+        </div>
+      </div>

@@ -1,0 +1,89 @@
+
+<!-- Footer style Start -->
+<footer class="footer-area pt-75 gray-bg-3">
+    <div class="footer-top gray-bg-3 pb-35">
+        <div class="container">
+            <div class="row text-center text-sm-start">
+                <div class="col-lg-6 col-sm-12">
+                    <div class="logo text-center">
+                        <a routerLink="/">
+                            <img alt="logo" src="/assets/img/logo/logo.png">
+                        </a>
+                    </div>
+                    <div class="text-center pt-3">
+                        Tea shop online. 
+                    </div>
+                    <div class="py-4 text-center pb-5">
+
+                        <span class="my-primary-button p-2">
+                            <span class="ion-android-document me-2"></span> <a class="text-white redirect-link" href="/assets/documentation.pdf" target="_blank">Documentation</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-widget mb-40">
+                        <div class="footer-title mb-25">
+                            <h4>Quick Links</h4>
+                        </div>
+                        <div class="footer-content">
+                            <ul>
+                                <ng-container *ngFor="let link of nav">
+                                    <ng-container *ngIf="link.route && !link.route.startsWith('_')">
+
+                                        <li><a [routerLink]="link.route">{{link.title | titlecase}}</a></li>
+
+                                    </ng-container>
+                                    <ng-container *ngIf="link.route && link.route.startsWith('_')">
+                                        <li *ngFor="let sublink of link.children">
+                                            <a [routerLink]="sublink.route">{{sublink.title | titlecase}}</a>
+                                        </li>
+                                    </ng-container>
+                                </ng-container>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-widget footer-widget-red footer-black-color mb-40">
+                        <div class="footer-title mb-25">
+                            <h4>Contact Us</h4>
+                        </div>
+                        <div class="footer-about">
+                            <p>1924 Abia Martin Drive<br/>Commack, NY 11725</p>
+                            <div class="footer-contact mt-20">
+                                <ul>
+                                    <li>+ 1 631-543-0775</li>
+                                </ul>
+                            </div>
+                                <div class="footer-contact mt-20">
+                                <ul>
+                                    <li>support@royaltea.com</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom pb-25 pt-25 gray-bg-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="copyright">
+                        <p class="copy-text"> © 2022 <strong>RoyalTea</strong> All Rights Reserved.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="payment-img f-right">
+                        <img alt="" src="/assets/img/icon-img/payment.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </footer>
+  <!-- Footer style End -->

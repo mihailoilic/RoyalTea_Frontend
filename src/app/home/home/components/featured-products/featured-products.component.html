@@ -1,0 +1,22 @@
+
+  <div class="product-area bg-image-1 pt-90 pb-65">
+    <div class="container">
+        <div class="product-top-bar section-border mb-55">
+            <div class="section-title-wrap text-center">
+                <h3 class="section-title">Featured Products</h3>
+            </div>
+        </div>
+        <div class="tab-content jump">
+            <div class="tab-pane active">
+
+                <input #fpcc type="hidden" name="fpcc" id="featured-products-carousel-check" value=""/>
+                <div class="featured-product-active owl-carousel product-nav">
+
+                    <app-product *ngFor="let product of products" [product]="product"></app-product>
+                    
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

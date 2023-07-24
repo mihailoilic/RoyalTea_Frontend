@@ -1,0 +1,9 @@
+<div class="single-banner img-zoom mb-30">
+    <a [routerLink]="banner.route">
+        <img src="{{ imagesDir + banner.image }}" alt="{{ banner.title }}">
+    </a>
+    <div class="banner-content">
+        <h4 [innerText]="banner.title"></h4>
+        <h5 *ngIf="banner.subtitle" [innerText]="banner.subtitle"></h5>
+    </div>
+</div>

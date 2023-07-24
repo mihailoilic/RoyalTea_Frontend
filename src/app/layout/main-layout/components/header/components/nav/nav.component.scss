@@ -1,0 +1,12 @@
+.main-menu ul > li > a.active{
+    color: #519f10;
+}
+a.disabled {
+    pointer-events: none;
+}
+
+.submenu, .mega-menu {
+
+    background: rgba(255,255,255,.90) !important;
+
+}

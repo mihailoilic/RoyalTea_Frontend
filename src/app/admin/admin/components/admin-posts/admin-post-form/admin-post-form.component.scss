@@ -1,0 +1,43 @@
+h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+::ng-deep.cdk-overlay-pane {
+    overflow-y: auto;
+}
+
+
+mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input, textarea {
+    height: auto;
+    transition: none;
+
+    &:focus {
+        border: none;
+    }
+}
+textarea {
+    height: 100px;
+}
+
+::ng-deep.mat-focused .mat-form-field-label {
+    color: #519f10 !important;
+}
+  
+::ng-deep.mat-form-field-underline {
+    
+    background-color: #519f10 !important;
+} 
+  
+::ng-deep .mat-form-field:not(.mat-form-field-invalid) .mat-form-field-ripple {
+   background-color: #519f10 !important;
+}
+
+button:disabled {
+    pointer-events: none;
+    opacity: .5;
+}

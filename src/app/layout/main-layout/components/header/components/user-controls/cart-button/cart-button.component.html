@@ -1,0 +1,9 @@
+<div class="header-cart">
+    <a routerLink="/cart">
+        <div class="cart-icon">
+            <i class="ti-shopping-cart"></i>
+            <small *ngIf="cartService.cart.length">{{cartService.cart.length}}</small>
+        </div>
+    </a>
+    
+</div>

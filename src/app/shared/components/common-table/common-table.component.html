@@ -1,0 +1,64 @@
+<div class="common-table">
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+  
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" [attr.colspan]="tableService.getColumns().length">
+          No items to show.
+        </td>
+      </tr>
+
+      <ng-container *ngFor="let column of tableService.getColumns()">
+        <ng-container [matColumnDef]="column.index">
+          <th mat-header-cell *matHeaderCellDef> {{ column.label }} </th>
+  
+          <td mat-cell *matCellDef="let element">
+            <ng-container [ngSwitch]="column.type">
+                
+            <ng-container *ngSwitchCase="columnTypeEnum.Image">
+                <img [src]="element[column.index].src" [alt]="element[column.index].alt"/>
+            </ng-container>
+
+              <ng-container *ngSwitchCase="columnTypeEnum.Button">
+                <button class="my-primary-button" (click)="column.method(element); column.refresh && loadData()">
+                  {{ column.label }}
+                </button>
+              </ng-container>
+
+              <ng-container *ngSwitchCase="columnTypeEnum.InputNumber">
+                <app-common-input-number 
+                [value]="element[column.index]" 
+                (valueEmitter)="column.method(element, $event); column.refresh && loadData()"></app-common-input-number>
+              </ng-container>
+
+              <ng-container *ngSwitchCase="columnTypeEnum.Custom">
+                <span [innerHTML]="column.method(element)"></span>
+              </ng-container>
+
+              <ng-container *ngSwitchDefault>
+                {{element[column.index]}}
+              </ng-container>
+
+            </ng-container>
+          </td>
+  
+        </ng-container>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="tableService.getColumnIndexes()"></tr>
+      <tr mat-row *matRowDef="let row; columns: tableService.getColumnIndexes();"></tr>
+    </table>
+  
+    <ng-container *ngIf="tableService.hasPaginator">
+      <mat-paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons
+        aria-label="Select page">
+      </mat-paginator>
+    </ng-container>
+  
+  
+  
+  
+    </div>
+    
+  </div>
+  

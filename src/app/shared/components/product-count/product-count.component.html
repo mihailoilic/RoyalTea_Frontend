@@ -1,0 +1,4 @@
+<p *ngIf="paginationService as ps">
+    Showing {{ (ps.page-1)*ps.itemsPerPage + ps.data.length ? 1 : 0 }} - 
+    {{ ps.page*ps.itemsPerPage > ps.data.length ? ps.data.length : ps.page*ps.itemsPerPage}} of {{ ps.data.length }} results  
+</p>

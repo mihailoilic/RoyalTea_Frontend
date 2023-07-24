@@ -1,0 +1,16 @@
+
+        <div class="pagination-style" *ngIf="paginationService.noOfPages">
+            <ul>
+                <li [class.disabled]="paginationService.page == 1"><a class="prev-next prev" href="#"  (click)="$event.preventDefault(); paginationService.setPage(paginationService.page - 1)"><i class="ion-ios-arrow-left"></i> Prev</a></li>
+
+                <li *ngFor="let item of [].constructor(paginationService.noOfPages); index as i">
+                    <a [class.active]="i+1 == paginationService.page" href="#" 
+                    (click)="$event.preventDefault(); paginationService.setPage(i+1)" >
+                    {{ i+1 }}</a>
+                </li>
+                
+                <li [class.disabled]="paginationService.page == paginationService.noOfPages">
+                    <a class="prev-next next" href="#" 
+                    (click)="$event.preventDefault(); paginationService.setPage(paginationService.page+1)">Next<i class="ion-ios-arrow-right"></i> </a></li>
+            </ul>
+        </div>

@@ -1,0 +1,17 @@
+<div class="row">
+
+    <div class="pt-20 pb-200 ps-4" *ngIf="!paginationService.dataOnPage.length">
+        No posts found.
+    </div>
+    <div class="col-md-6 col-xl-4 p-3" *ngFor="let post of paginationService.dataOnPage">
+        <app-blog-post [post]="post"></app-blog-post>
+    </div>
+
+    <div class="pagination-total-pages">
+        <app-pagination [paginationService]="paginationService"></app-pagination>
+        <div class="total-pages">
+            <app-product-count [paginationService]="paginationService"></app-product-count>
+        </div>
+    </div>
+
+</div>

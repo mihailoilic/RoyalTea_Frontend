@@ -1,0 +1,20 @@
+<!-- header start -->
+<header class="header-area gray-bg clearfix">
+    <div class="header-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-6">
+                    <app-logo></app-logo>
+                </div>
+                <div class="col-lg-9 col-md-7 col-6">
+                    <div class="header-bottom-right">
+                        <app-nav [links]="links"></app-nav>
+                        <app-user-controls></app-user-controls>
+                    </div>
+                </div>
+            </div>
+            <app-mobile-nav [links]="links"></app-mobile-nav>
+        </div>
+    </div>
+  </header>
+  <!-- header end -->

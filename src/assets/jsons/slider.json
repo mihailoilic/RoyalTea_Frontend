@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "imagePath": "slide1.jpg",
+        "htmlContent": "<h1 class='animated'>Award-winning</h1><h1 class='animated'><span class='theme-color'>organic</span> tea</h1><p>Each one has a beautiful display and a unique story of its own.</p>"
+        
+    },
+    {
+        "id": 2,
+        "imagePath": "slide2.jpg",
+        "htmlContent": "<h1 class='animated'>Carefully crafted</h1><h1 class='animated'><span class='theme-color'>diverse</span> tea</h1><p>Nuanced, delicious blends that any tea drinker can enjoy.</p>"
+
+    }
+    
+]

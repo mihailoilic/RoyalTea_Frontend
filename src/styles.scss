@@ -1,0 +1,39 @@
+
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    // font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+.main-menu a.active, .mean-nav a.active {
+    color: #519f10 !important;
+}
+
+.mean-nav ul {
+    margin-bottom: 20px !important;
+}
+
+@media (max-width: 767px){
+
+    .mobile-menu .mean-nav ul.menu-overflow {
+        height: auto;
+        max-height: 300px;
+    
+    }
+}
+
+.testimonial-active .owl-dot, .testimonial-active .owl-dot.active {
+    background-color: rgba(#000, .4);
+}
+
+.my-primary-button {
+    box-sizing: border-box;
+    background: #519f10;
+    color: #fff;
+    border: none;
+    padding: 5px 8px;
+}
+
+.primary-color {
+    color: #519f10;
+}

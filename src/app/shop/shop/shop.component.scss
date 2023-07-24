@@ -1,0 +1,8 @@
+.pagination-style .disabled {
+    cursor: not-allowed;
+    
+    a {
+        pointer-events: none;
+        opacity: .5;
+    }
+}

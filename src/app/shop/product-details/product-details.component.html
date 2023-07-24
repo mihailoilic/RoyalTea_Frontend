@@ -1,0 +1,54 @@
+<app-cover-area title="SHOP" subtitle="Find what suits you best."></app-cover-area>
+
+<!-- Product Deatils Area Start -->
+<div class="product-details pt-50 pb-95">
+    <div  class="container">
+
+        <div class="pt-30 pb-30">
+            <a routerLink="/shop">Back to shop</a>
+        </div>
+
+        <div *ngIf="isReady" class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="product-details-img">
+                    <img class="zoompro" [src]="imageDir + product.image" [alt]="product.title"/>
+                    <span *ngIf="product.discount">-{{product.discount}}%</span>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="product-details-content">
+                    
+                    <h4>{{ product.title }}</h4>
+                    <h6 class="text-muted">{{ product.category.name}}</h6>
+
+                    <div class="pt-20">
+
+                        <span class="h5">{{ currencyService.getPrice(product.prices).value | currency : currencyService.selectedCurrency.isoCode }}</span> 
+                        <span *ngIf="product.discount" class="ms-2 old-price text-muted">{{ currencyService.getPrice(product.prices).oldValue | currency : currencyService.selectedCurrency.isoCode }}</span>
+                    </div>
+                    <p class="pt-20 pb-10">{{ product.description }}</p>
+
+                    <div class="quality-add-to-cart pb-10">
+                        <div class="quality">
+                            <label>Qty:</label>
+                            <input #qty class="cart-plus-minus-box" type="number" name="qtybutton" min="1" max="99" value="1">
+                        </div>
+                        <div class="shop-list-cart-wishlist">
+                            <a title="Add To Cart" href="#!" (click)="$event.preventDefault(); addToCart(qty)">
+                                <i class="ion-android-cart"></i>
+                            </a>
+                        </div>
+                        <div class="pt-10 text-success" *ngIf="addToCartMsg">{{ addToCartMsg }}</div>
+                    </div>
+                    <div class="pro-dec-categories">
+                        <ul *ngFor="let spec of product.productSpecifications">
+                            <li class="categories-title">{{spec.name}}: </li>
+                            <li class="fw-bold ms-2" *ngFor="let val of spec.values; last as isLast">{{ val.value }}{{ !isLast ? ", " : "" }} </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Deatils Area End -->

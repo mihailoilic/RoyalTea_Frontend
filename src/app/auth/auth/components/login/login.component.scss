@@ -1,0 +1,35 @@
+.bg-white {
+    max-width: 500px;
+}
+mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    height: auto;
+    transition: none;
+
+    &:focus {
+        border: none;
+    }
+}
+
+
+::ng-deep.mat-focused .mat-form-field-label {
+    color: #519f10 !important;
+}
+  
+::ng-deep.mat-form-field-underline {
+    
+    background-color: #519f10 !important;
+} 
+  
+::ng-deep .mat-form-field:not(.mat-form-field-invalid) .mat-form-field-ripple {
+   background-color: #519f10 !important;
+}
+
+button:disabled {
+    pointer-events: none;
+    opacity: .5;
+}

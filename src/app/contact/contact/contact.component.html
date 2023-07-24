@@ -1,0 +1,75 @@
+<app-cover-area title="CONTACT" subtitle="Ask us anything"></app-cover-area>
+
+<div class="container py-5">
+    <div class="contact-form p-5 mx-auto">
+
+        <h4>Send Us a Message</h4>
+        <form class="mt-5" [formGroup]="formService.form">
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Full Name</mat-label>
+                <input matInput formControlName="fullName">
+                <mat-error *ngIf="formService.form.get('fullName') as control">
+                    <ng-container *ngIf="control.hasError('required')">
+                        This field is required
+                    </ng-container>
+                    <ng-container *ngIf="control.hasError('minlength')">
+                        Minimum 2 characters
+                    </ng-container>
+                    <ng-container *ngIf="control.hasError('pattern')">
+                        Your name must begin with a capital letter, only letters and spaces are allowed
+                    </ng-container>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>E-mail</mat-label>
+                <input matInput formControlName="email">
+                <mat-error *ngIf="formService.form.get('email') as control">
+                    <ng-container *ngIf="control.hasError('required')">
+                        This field is required
+                    </ng-container>
+                    <ng-container *ngIf="control.hasError('email')">
+                        Please input a valid e-mail address
+                    </ng-container>
+                </mat-error>
+            </mat-form-field>
+    
+            
+            <mat-form-field appearance="fill">
+                <mat-label>Subject</mat-label>
+                <input matInput formControlName="subject">
+                <mat-error *ngIf="formService.form.get('subject') as control">
+                    <ng-container *ngIf="control.hasError('required')">
+                        This field is required
+                    </ng-container>
+                    <ng-container *ngIf="control.hasError('minlength')">
+                        Minimum 5 characters
+                    </ng-container>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Message</mat-label>
+                <textarea matInput formControlName="message"></textarea>
+                <mat-error *ngIf="formService.form.get('message') as control">
+                    <ng-container *ngIf="control.hasError('required')">
+                        This field is required
+                    </ng-container>
+                    <ng-container *ngIf="control.hasError('minlength')">
+                        Minimum 10 characters
+                    </ng-container>
+                </mat-error>
+            </mat-form-field>
+
+            <div class="contact-form-style">
+                <button class="my-primary-button p-3 m-0 rounded-0" [disabled]="formService.form.invalid" (click)="send()">Send</button>
+            </div>
+
+            <div *ngIf="formService.message" [class]="[formService.messageColorClass, 'mt-2']">
+                {{ formService.message }}
+            </div>
+        </form>
+
+    </div>
+</div>

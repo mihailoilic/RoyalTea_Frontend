@@ -1,0 +1,14 @@
+<app-cover-area title="PRODUCT MANAGEMENT" subtitle="Modify products content"></app-cover-area>
+
+<div class="ptb-100 px-2 container">
+
+    <div class="ptb-30">
+        <button class="my-primary-button p-2 px-3" (click)="openProductForm()">Add New Product</button>
+    </div>
+
+    <app-common-table
+        [dataService]="dataService"
+        [tableService]="tableService"
+    ></app-common-table>
+
+</div>

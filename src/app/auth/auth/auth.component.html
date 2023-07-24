@@ -1,0 +1,23 @@
+<!-- <app-cover-area [title]="coverTitle | uppercase" subtitle="&nbsp;"></app-cover-area> -->
+<div class="bg-image-1">
+
+    <div class="ptb-200 px-5 container">
+        
+        <div class="me-auto ms-auto">
+            <div class="login-register-wrapper">
+                <div class="login-register-tab-list nav">
+                    <a routerLink="/auth/login" routerLinkActive="active">
+                        <h4> login </h4>
+                    </a>
+                    <a routerLink="/auth/register" routerLinkActive="active">
+                        <h4> register </h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <router-outlet></router-outlet>
+    
+    
+    </div>
+</div>

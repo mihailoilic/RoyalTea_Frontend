@@ -1,0 +1,45 @@
+
+            <input type="hidden" id="mobile-menu-check" name="mobile-menu-check" value="" (click)="navigationSetup()"/>
+
+            <div class="mobile-menu-area">
+                <div class="mobile-menu">
+                    <nav id="mobile-menu-active">
+                        <ul class="menu-overflow">
+                            
+                            <ng-container *ngFor="let link of links">
+
+                                <li>
+                                    <a *ngIf="link.routerLinkOptions" routerLink="{{link.route}}"  [innerHTML]="link.title" routerLinkActive="active" [routerLinkActiveOptions]="link.routerLinkOptions" [class.disabled]="link.route == '_hover'"></a>
+                    
+                                    <a *ngIf="!link.routerLinkOptions" routerLink="{{link.route}}"  [innerHTML]="link.title" routerLinkActive="active"></a>
+
+
+                                    <ng-container [ngSwitch]="link.type">
+
+                                        <!-- --- MEGAMENU --- -->
+                                        <ul *ngSwitchCase="'megamenu'">
+                                            <ng-container *ngFor="let child of link.children">
+                                                <li class="mega-menu-title" [innerHTML]="child.title"></li>
+                                                <li *ngFor="let sublink of child.children">
+                                                    <a routerLink="{{sublink.route}}" [innerHTML]="sublink.title"></a>
+                                                </li>
+                                            </ng-container>
+                                        </ul>
+                
+                
+                                        <!-- --- SUBMENU --- -->
+                                        <ul *ngSwitchCase="'submenu'">
+                                            <li *ngFor="let sublink of link.children">
+                                                <a routerLink="{{sublink.route}}" [innerHTML]="sublink.title"></a>
+                                            </li>
+                                        </ul>
+                
+                
+                                    </ng-container>
+
+                                </li>
+                            </ng-container>
+                        </ul>
+                    </nav>
+                </div>
+            </div>

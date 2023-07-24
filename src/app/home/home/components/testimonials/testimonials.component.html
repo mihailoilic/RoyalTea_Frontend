@@ -1,0 +1,18 @@
+  <!-- Testimonial Area Start -->
+  <div class="testimonials-area bg-img pt-100 pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+
+                <input #tcc type="hidden" name="tcc" id="testimonial-carousel-check">
+                <div class="testimonial-active owl-carousel">
+
+                    <app-testimonial *ngFor="let testimonial of testimonials" [testimonial]="testimonial"></app-testimonial>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- Testimonial Area End -->

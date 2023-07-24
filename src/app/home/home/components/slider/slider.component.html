@@ -1,0 +1,19 @@
+
+<!-- Slider Start -->
+<input #check type="hidden" class="slider-active-check" value=""/>
+<div class="slider-area">
+    <div class="slider-active owl-dot-style owl-carousel">
+
+        <ng-container *ngFor="let slide of slides">
+
+            <div class="single-slider ptb-240 bg-img" style="background-image:url('/assets/img/slider/{{ slide.imagePath }}');">
+                <div class="container">
+                    <div class="slider-content slider-animated-1" [innerHTML]="slide.htmlContent">
+                    </div>
+                </div>
+            </div>
+
+        </ng-container>
+    </div>
+  </div>
+  <!-- Slider End -->

@@ -1,0 +1,28 @@
+<div class="header-currency">
+    <span class="digit">{{authService.token ? authService.token.Username : "(guest)" }} <i class="ti-angle-down"></i></span>
+    <div class="dollar-submenu">
+
+        <ul *ngIf="!authService.token">
+            <li>
+                <a routerLink="/auth/login" routerLinkActive="active">Login</a>
+            </li>
+            <li>
+                <a routerLink="/auth/register">Register</a>
+            </li>
+        </ul>      
+
+        <ul *ngIf="authService.token">
+
+            <ng-container *ngFor="let link of adminLinks">
+                <li *ngIf="useCasesAvailable(link.useCases)">
+                    <a [routerLink]="link.path" routerLinkActive="active">{{ link.title }}</a>
+                </li>
+            </ng-container>
+            
+            <li>
+                <a href="#" (click)="$event.preventDefault(); authService.logout()">Logout</a>
+            </li>
+        </ul>
+
+    </div>
+</div>

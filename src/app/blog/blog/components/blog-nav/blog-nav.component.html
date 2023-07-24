@@ -1,0 +1,10 @@
+<div id="blog-nav-container" class="px-4 pt-2 mx-lg-5 pb-5 mt-md-3 d-flex flex-column align-items-start">
+
+    <h4 class="ptb-20">Browse</h4>
+    <ul>
+        <li *ngFor="let link of links">
+            <a [routerLink]="link.route" routerLinkActive="active">{{ link.title | titlecase }}</a>
+        </li>
+    </ul>
+
+</div>
