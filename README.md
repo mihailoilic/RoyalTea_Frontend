@@ -11,11 +11,16 @@ Check paths and ports in app/constants/config.ts
 Don't forget to run "npm i".
 Run angular app.
 
+ 
 
-Credentials for an account with all privileges:
+### Credentials for an account with all privileges:
+
 Username: admin 
+
 Password: password
 
-Credentials for an account with default user privileges:
+### Credentials for an account with default user privileges:
+
 Username: user 
+
 Password: password
